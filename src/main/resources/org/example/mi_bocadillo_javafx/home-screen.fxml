@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="menuLateral" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="796.0" prefWidth="1187.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mi_bocadillo_javafx.HomeScreenController">
+   <center>
+      <AnchorPane fx:id="contenidoPrincipal" style="-fx-background-color: E8F5E9;" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <VBox alignment="CENTER" prefHeight="796.0" prefWidth="320.0" spacing="100.0" style="-fx-background-color: A5D6A7; -fx-border-color: black;" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#cargarPantallaPedirBocadillos" prefHeight="49.0" prefWidth="235.0" style="-fx-background-radius: 10; -fx-text-fill: black; -fx-background-color: white; -fx-font-size: 20;" text="Pedir bocata" />
+            <Button mnemonicParsing="false" onAction="#cargarPantallaBocadillos" prefHeight="49.0" prefWidth="235.0" style="-fx-background-radius: 10; -fx-text-fill: black; -fx-background-color: white; -fx-font-size: 20;" text="Bocadillos" />
+            <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="235.0" style="-fx-background-radius: 10; -fx-text-fill: black; -fx-background-color: white; -fx-font-size: 20;" text="Mis pedidos" />
+      </VBox>
+   </left>
+</BorderPane>

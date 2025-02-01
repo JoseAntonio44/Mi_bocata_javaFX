@@ -134,7 +134,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                org.example.mi_bocadillo_javafx/org.example.mi_bocadillo_javafx.HelloApplication
+                                org.example.mi_bocadillo_javafx/org.example.mi_bocadillo_javafx.LoginApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
