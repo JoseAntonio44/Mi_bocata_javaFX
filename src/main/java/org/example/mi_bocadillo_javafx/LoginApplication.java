@@ -39,6 +39,7 @@ public class LoginApplication extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public static void main(String[] args) {
