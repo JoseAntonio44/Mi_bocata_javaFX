@@ -10,7 +10,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mi_bocadillo_javafx.LoginController">
+<?import javafx.scene.control.PasswordField?>
+<StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mi_bocadillo_javafx.controller.LoginController">
    <children>
       <ImageView pickOnBounds="true" preserveRatio="true" style="-fx-preserve-ratio: true preserveRatio=true                pickOnBounds=true;">
          <image>
@@ -27,7 +28,7 @@
                   <Image url="@../../../images/logoMiBocata.png" />
                </image>
             </ImageView>
-            <VBox alignment="CENTER" maxHeight="700.0" maxWidth="400.0" minHeight="400.0" minWidth="400.0" style="-fx-opacity: 80; -fx-background-radius: 20; -fx-background-color: rgba(217, 217, 217, 0.8);">
+            <VBox alignment="CENTER" maxHeight="700.0" maxWidth="400.0" minHeight="400.0" minWidth="400.0" style="-fx-background-radius: 15; -fx-background-color: rgba(217, 217, 217, 0.8);">
                <children>
                   <VBox alignment="CENTER" maxHeight="450.0" maxWidth="300.0" spacing="20.0">
                      <children>
@@ -42,12 +43,12 @@
                         </VBox>
                         <VBox>
                            <children>
-                              <TextField minHeight="50.0" promptText="Usuario" style="-fx-background-radius: 15;">
+                              <TextField fx:id="emailField" minHeight="50.0" promptText="Usuario" style="-fx-background-radius: 10;">
                                  <VBox.margin>
                                     <Insets bottom="30.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField minHeight="50.0" promptText="Contraseña" style="-fx-background-radius: 15;" />
+                              <PasswordField fx:id="passwordField" minHeight="50.0" promptText="Contraseña" style="-fx-background-radius: 10;" />
                            </children>
                            <VBox.margin>
                               <Insets />

@@ -1,4 +1,4 @@
-package org.example.mi_bocadillo_javafx;
+package org.example.mi_bocadillo_javafx.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

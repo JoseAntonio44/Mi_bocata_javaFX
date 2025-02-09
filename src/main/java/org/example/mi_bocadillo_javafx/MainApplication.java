@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.IOException;
 
-public class LoginApplication extends Application {
+public class MainApplication extends Application {
     private static Stage primaryStage;
 
     @Override
@@ -29,7 +29,7 @@ public class LoginApplication extends Application {
 
     public static void mostrarPantallaPrincipal() {
         try {
-            FXMLLoader loader = new FXMLLoader(LoginApplication.class.getResource("home-screen.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("home-screen.fxml"));
             Scene scene = new Scene(loader.load());
 
             Stage stage = new Stage();
