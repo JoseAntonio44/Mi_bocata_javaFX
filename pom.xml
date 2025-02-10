@@ -16,15 +16,11 @@
 
     <dependencies>
         <dependency>
-            <groupId>jakarta.persistence</groupId>
-            <artifactId>jakarta.persistence-api</artifactId>
-            <version>[3.0.0,)</version>
-        </dependency>
-        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>21</version>
         </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
@@ -60,6 +56,13 @@
             <version>6.4.0.Final</version>
         </dependency>
 
+        <!-- Hibernate JPA API -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
         <!-- Logger SLF4J -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -78,6 +81,7 @@
             <artifactId>mariadb-java-client</artifactId>
             <version>3.4.1</version>
         </dependency>
+
     </dependencies>
 
     <build>

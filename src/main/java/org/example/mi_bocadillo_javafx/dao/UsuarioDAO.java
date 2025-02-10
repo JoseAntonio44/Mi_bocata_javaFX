@@ -4,20 +4,27 @@ package org.example.mi_bocadillo_javafx.dao;
 import org.example.mi_bocadillo_javafx.model.Usuario;
 import org.example.mi_bocadillo_javafx.util.HibernateUtil;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
+import org.hibernate.Transaction;
 
 public class UsuarioDAO {
 
-    public Usuario obtenerUsuarioPorEmail(String email) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Usuario usuario = null;
-        try {
-            Query<Usuario> query = session.createQuery("FROM Usuario WHERE email = :email", Usuario.class);
-            query.setParameter("email", email);
-            usuario = query.uniqueResult();
-        } finally {
-            session.close();
+    public Usuario obtenerPorEmail(String email) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("FROM Usuario WHERE email = :email", Usuario.class)
+                    .setParameter("email", email)
+                    .uniqueResult();
         }
-        return usuario;
+    }
+
+    public void guardarUsuario(Usuario usuario) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.save(usuario);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        }
     }
 }

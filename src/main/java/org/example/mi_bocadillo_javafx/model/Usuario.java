@@ -1,15 +1,29 @@
 package org.example.mi_bocadillo_javafx.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "usuarios")
-public class Usuario {
+@Table(name = "usuario")
+public class Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
+    @Column(name = "email", nullable = false, length = 255)
     private String email;
+
+    @Column(nullable = false, length = 255, name = "password")
     private String password;
+
+    // Constructor vacío requerido por JPA
+    public Usuario() {
+    }
+
+    // Constructor con parámetros
+    public Usuario(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
     // Getters y Setters
     public String getEmail() {
@@ -26,5 +40,13 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "email='" + email + '\'' +
+                ", password='[PROTECTED]'" +  // Evita mostrar la contraseña en logs
+                '}';
     }
 }

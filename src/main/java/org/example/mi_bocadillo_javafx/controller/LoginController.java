@@ -3,7 +3,7 @@ package org.example.mi_bocadillo_javafx.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.example.mi_bocadillo_javafx.MainApplication;
-import org.example.mi_bocadillo_javafx.service.AuthService;
+import org.example.mi_bocadillo_javafx.service.LoginService;
 
 public class LoginController {
 
@@ -21,7 +21,7 @@ public class LoginController {
     @FXML
     private Label mensajeLabel;
 
-    private AuthService loginService = new AuthService();
+    private LoginService loginService = new LoginService();
 
 
     @FXML
@@ -30,8 +30,8 @@ public class LoginController {
         String password = passwordField.getText();
 
         if (loginService.validarCredenciales(email, password)) {
-            MainApplication.mostrarPantallaPrincipal();
             mostrarMensaje("Login exitoso", "¡Bienvenido!", Alert.AlertType.INFORMATION);
+            MainApplication.mostrarPantallaPrincipal();
         } else {
             mostrarMensaje("Error de login", "Usuario o contraseña incorrectos", Alert.AlertType.ERROR);
         }
