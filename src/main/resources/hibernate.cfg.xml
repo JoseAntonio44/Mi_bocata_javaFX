@@ -3,17 +3,16 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mariadb://localhost/bocata</property>
+        <property name="connection.url">jdbc:mariadb://localhost:3306/bocata</property>
         <property name="connection.username">root</property>
         <property name="connection.password"></property>
-        <property name="dialect">org.hibernate.dialect.MariaDBDialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.show_sql">true</property>
 
 
         <mapping class="org.example.mi_bocadillo_javafx.model.Usuario"/>
         <mapping class="org.example.mi_bocadillo_javafx.model.Pedido"/>
-        <mapping class="org.example.mi_bocadillo_javafx.model.Pedido"/>
-
+        <mapping class="org.example.mi_bocadillo_javafx.model.Bocadillo"/>
 
     </session-factory>
 </hibernate-configuration>

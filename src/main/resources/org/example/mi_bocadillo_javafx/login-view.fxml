@@ -56,7 +56,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" maxHeight="70.0">
                            <children>
-                              <Button fx:id="loginButton" minHeight="40.0" minWidth="300.0" mnemonicParsing="false" style="-fx-background-color: #558B2F; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Login">
+                              <Button fx:id="loginButton" minHeight="40.0" minWidth="300.0" mnemonicParsing="false" style="-fx-background-color: #558B2F; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Login" onAction="#manejarLogin">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

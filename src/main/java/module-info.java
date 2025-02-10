@@ -6,6 +6,7 @@ module org.example.mi_bocadillo_javafx {
     requires org.kordamp.bootstrapfx.core;
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
+    requires java.naming;
 
     opens org.example.mi_bocadillo_javafx to javafx.fxml;
     exports org.example.mi_bocadillo_javafx;

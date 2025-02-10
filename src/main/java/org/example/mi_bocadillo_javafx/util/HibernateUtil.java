@@ -1,5 +1,6 @@
 package org.example.mi_bocadillo_javafx.util;
 
+import org.example.mi_bocadillo_javafx.model.Usuario;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 

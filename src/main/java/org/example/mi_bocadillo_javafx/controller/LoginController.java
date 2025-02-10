@@ -1,10 +1,7 @@
 package org.example.mi_bocadillo_javafx.controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import org.example.mi_bocadillo_javafx.MainApplication;
 import org.example.mi_bocadillo_javafx.service.AuthService;
 
@@ -24,43 +21,29 @@ public class LoginController {
     @FXML
     private Label mensajeLabel;
 
+    private AuthService loginService = new AuthService();
 
-
-    /*@FXML
-    public void initialize() {
-        loginButton.setOnAction(event -> {
-
-            String email = emailField.getText();
-            String password = passwordField.getText();
-
-            if(AuthService.login(email,password)){
-                loginButton.getScene().getWindow().hide();
-                abrirNuevaVentana();
-            }else {
-                mensajeLabel.setText("Email o contraseña incorrecto");
-            }
-
-        });
-    }*/
-
-    private final AuthService authService = new AuthService();
 
     @FXML
-    public void onLoginButtonClicked() {
+    private void manejarLogin() {
         String email = emailField.getText();
         String password = passwordField.getText();
 
-        if (authService.login(email, password)) {
-            mensajeLabel.setText("Login exitoso");
-            loginButton.getScene().getWindow().hide();
-            abrirNuevaVentana();
-            // Aquí puedes redirigir a la siguiente pantalla
+        if (loginService.validarCredenciales(email, password)) {
+            MainApplication.mostrarPantallaPrincipal();
+            mostrarMensaje("Login exitoso", "¡Bienvenido!", Alert.AlertType.INFORMATION);
         } else {
-            mensajeLabel.setText("Credenciales incorrectas");
+            mostrarMensaje("Error de login", "Usuario o contraseña incorrectos", Alert.AlertType.ERROR);
         }
     }
 
-    private void abrirNuevaVentana() {
-        MainApplication.mostrarPantallaPrincipal();
+
+    private void mostrarMensaje(String titulo, String mensaje, Alert.AlertType tipo) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titulo);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
+
+
 }
