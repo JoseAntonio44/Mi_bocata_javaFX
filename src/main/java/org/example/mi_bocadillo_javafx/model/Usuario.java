@@ -1,12 +1,10 @@
 package org.example.mi_bocadillo_javafx.model;
 
 import jakarta.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Usuario {
 
     @Id
     @Column(name = "email", nullable = false, length = 255)

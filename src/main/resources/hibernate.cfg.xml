@@ -18,7 +18,5 @@
 
         <!-- Mapeo de entidades -->
         <mapping class="org.example.mi_bocadillo_javafx.model.Usuario"/>
-        <mapping class="org.example.mi_bocadillo_javafx.model.Pedido"/>
-        <mapping class="org.example.mi_bocadillo_javafx.model.Bocadillo"/>
     </session-factory>
 </hibernate-configuration>
