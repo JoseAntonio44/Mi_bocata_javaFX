@@ -8,23 +8,13 @@ import org.hibernate.Transaction;
 
 public class UsuarioDAO {
 
-    public Usuario obtenerPorEmail(String email) {
+    public Usuario getAlumnoByEmail(String email, String contraseña) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("FROM Usuario WHERE email = :email", Usuario.class)
+            return session.createQuery("FROM Usuario WHERE email = :email AND password = :password", Usuario.class)
                     .setParameter("email", email)
-                    .uniqueResult();
+                    .setParameter("password", contraseña)
+                    .getSingleResult();
         }
     }
 
-    public void guardarUsuario(Usuario usuario) {
-        Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
-            session.save(usuario);
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
-            e.printStackTrace();
-        }
-    }
 }

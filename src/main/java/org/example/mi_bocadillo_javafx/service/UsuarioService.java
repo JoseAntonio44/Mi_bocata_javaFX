@@ -2,13 +2,15 @@ package org.example.mi_bocadillo_javafx.service;
 
 
 import org.example.mi_bocadillo_javafx.dao.UsuarioDAO;
-import org.example.mi_bocadillo_javafx.model.Usuario;
 
-public class LoginService {
+public class UsuarioService {
     private final UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     public boolean validarCredenciales(String email, String password) {
-        Usuario usuario = usuarioDAO.obtenerPorEmail(email);
-        return usuario != null && usuario.getPassword().equals(password);
+        if(usuarioDAO.getAlumnoByEmail(email, password) != null) {
+            return true;
+        }else {
+            return false;
+        }
     }
 }

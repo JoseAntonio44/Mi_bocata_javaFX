@@ -8,21 +8,15 @@ public class HibernateUtil {
 
     private static SessionFactory buildSessionFactory() {
         try {
-            // Crea la SessionFactory desde hibernate.cfg.xml
-            return new Configuration().configure().buildSessionFactory();
+            return new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         } catch (Throwable ex) {
-            // Muestra el error en la consola
-            System.err.println("Error en la creación de la SessionFactory: " + ex);
+            System.err.println("Error en la creación de la SessionFactory: " + ex.getMessage());
+            ex.printStackTrace();
             throw new ExceptionInInitializerError(ex);
         }
     }
 
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
-    }
-
-    public static void shutdown() {
-        // Cierra caches y pools de conexiones
-        getSessionFactory().close();
     }
 }
