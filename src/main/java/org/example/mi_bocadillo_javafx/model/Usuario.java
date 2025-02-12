@@ -17,10 +17,10 @@ public class Usuario {
     @Column(length = 255, unique = true, name = "mac")
     private String mac;
 
-    @Enumerated(EnumType.STRING)
+    /*@Enumerated(EnumType.STRING)
     @Column(name = "tipo_usuario")
     private TipoUsuario tipoUsuario;
-
+*/
     public enum TipoUsuario {
         Cocina, Administrador
     }
@@ -34,7 +34,7 @@ public class Usuario {
         this.email = email;
         this.password = password;
         this.mac = mac;
-        this.tipoUsuario = tipoUsuario;
+        //this.tipoUsuario = tipoUsuario;
     }
 
     // Getters y Setters
@@ -61,7 +61,7 @@ public class Usuario {
     public void setMac(String mac) {
         this.mac = mac;
     }
-
+/*
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
     }
@@ -69,13 +69,13 @@ public class Usuario {
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
-
+*/
     @Override
     public String toString() {
         return "Usuario{" +
                 "email='" + email + '\'' +
                 ", mac='" + mac + '\'' +
-                ", tipoUsuario=" + tipoUsuario +
+                //", tipoUsuario=" + tipoUsuario +
                 ", password='[PROTECTED]'" +  // Evita mostrar la contraseña en logs
                 '}';
     }

@@ -27,12 +27,11 @@ public class LoginController {
     private void manejarLogin() {
         UsuarioService usuarioService = new UsuarioService();
         if (usuarioService.validarCredenciales(emailField.getText(), passwordField.getText())) {
-            MainApplication.mostrarPantallaPrincipal();
+            //MainApplication.mostrarPantallaPrincipal();
         }else {
-            mostrarMensaje("Error", "Credenciales inválidas", Alert.AlertType.ERROR);
+            //mostrarMensaje("Error", "Credenciales inválidas", Alert.AlertType.ERROR);
         }
     }
-
 
     private void mostrarMensaje(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
