@@ -2,11 +2,11 @@ package org.example.mi_bocadillo_javafx.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "usuario")
 public class Usuario {
-    private static final long serialVersionUID = 1L;
-
     @Id
     @Column(length = 255, unique = true, name = "email")
     private String email;
@@ -17,27 +17,27 @@ public class Usuario {
     @Column(length = 255, unique = true, name = "mac")
     private String mac;
 
-    /*@Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     @Column(name = "tipo_usuario")
     private TipoUsuario tipoUsuario;
-*/
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Alumno> alumnos;
+
     public enum TipoUsuario {
         Cocina, Administrador
     }
 
-    // Constructor vacío requerido por JPA
     public Usuario() {
     }
 
-    // Constructor con parámetros
     public Usuario(String email, String password, String mac, TipoUsuario tipoUsuario) {
         this.email = email;
         this.password = password;
         this.mac = mac;
-        //this.tipoUsuario = tipoUsuario;
+        this.tipoUsuario = tipoUsuario;
     }
 
-    // Getters y Setters
     public String getEmail() {
         return email;
     }
@@ -61,7 +61,7 @@ public class Usuario {
     public void setMac(String mac) {
         this.mac = mac;
     }
-/*
+
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
     }
@@ -69,13 +69,21 @@ public class Usuario {
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
-*/
+
+    public List<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(List<Alumno> alumnos) {
+        this.alumnos = alumnos;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
                 "email='" + email + '\'' +
                 ", mac='" + mac + '\'' +
-                //", tipoUsuario=" + tipoUsuario +
+                ", tipoUsuario=" + tipoUsuario +
                 ", password='[PROTECTED]'" +  // Evita mostrar la contraseña en logs
                 '}';
     }

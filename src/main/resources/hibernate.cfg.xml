@@ -14,6 +14,16 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Mapeo de entidades -->
+        <mapping class="org.example.mi_bocadillo_javafx.model.Alergeno"/>
+        <mapping class="org.example.mi_bocadillo_javafx.model.Alumno"/>
+        <mapping class="org.example.mi_bocadillo_javafx.model.AlumnoDescuento"/>
+        <mapping class="org.example.mi_bocadillo_javafx.model.Bocadillo"/>
+        <mapping class="org.example.mi_bocadillo_javafx.model.Curso"/>
+        <mapping class="org.example.mi_bocadillo_javafx.model.Descuento"/>
+        <mapping class="org.example.mi_bocadillo_javafx.model.Pedido"/>
         <mapping class="org.example.mi_bocadillo_javafx.model.Usuario"/>
+
+
+
     </session-factory>
 </hibernate-configuration>

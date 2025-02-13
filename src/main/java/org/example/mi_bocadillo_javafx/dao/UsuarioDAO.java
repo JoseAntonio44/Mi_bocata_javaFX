@@ -10,13 +10,10 @@ public class UsuarioDAO {
 
     public Usuario getAlumnoByEmail(String email, String contraseña) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            /*return session.createQuery("FROM Usuario WHERE email = :email AND password = :password", Usuario.class)
+            return session.createQuery("FROM Usuario WHERE email = :email AND password = :password", Usuario.class)
                     .setParameter("email", email)
                     .setParameter("password", contraseña)
                     .getSingleResult();
-
-             */
-            return null;
         }
     }
 

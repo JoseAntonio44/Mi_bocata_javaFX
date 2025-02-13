@@ -7,8 +7,6 @@ import org.example.mi_bocadillo_javafx.service.UsuarioService;
 
 public class LoginController {
 
-    @FXML
-    private Button loginButton;
 
     @FXML
     private TextField emailField;
@@ -27,9 +25,9 @@ public class LoginController {
     private void manejarLogin() {
         UsuarioService usuarioService = new UsuarioService();
         if (usuarioService.validarCredenciales(emailField.getText(), passwordField.getText())) {
-            //MainApplication.mostrarPantallaPrincipal();
+            MainApplication.mostrarPantallaPrincipal();
         }else {
-            //mostrarMensaje("Error", "Credenciales inválidas", Alert.AlertType.ERROR);
+            mostrarMensaje("Error", "Credenciales inválidas", Alert.AlertType.ERROR);
         }
     }
 

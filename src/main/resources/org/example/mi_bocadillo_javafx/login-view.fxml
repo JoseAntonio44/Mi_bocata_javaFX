@@ -13,7 +13,7 @@
 <?import javafx.scene.control.PasswordField?>
 <StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mi_bocadillo_javafx.controller.LoginController">
    <children>
-      <ImageView pickOnBounds="true" preserveRatio="true" style="-fx-preserve-ratio: true preserveRatio=true                pickOnBounds=true;">
+      <ImageView pickOnBounds="true" preserveRatio="true" style="-fx-preserve-ratio: true preserveRatio=true; -fx-pickOnBounds=true;">
          <image>
             <Image url="@../../../images/paredblanca.png" />
          </image>
