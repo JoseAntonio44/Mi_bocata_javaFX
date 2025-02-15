@@ -22,8 +22,8 @@ public class PedirBocadillosScreenController implements Initializable {
 
     private void mostrarBocadillos(){
         BocadilloService bocadilloService = new BocadilloService();
-        bocataFrio.setText(bocadilloService.obtenerBocataFrio().getNombre());
-        bocataCaliente.setText(bocadilloService.obtenerBocataCaliente().getNombre());
+        bocataFrio.setText(bocadilloService.obtenerNombreBocataFrio());
+        bocataCaliente.setText(bocadilloService.obtenerNombreBocataCaliente());
     }
 
 

@@ -6,6 +6,7 @@ import org.hibernate.Session;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.List;
 
 public class BocadilloDAO {
 
@@ -39,6 +40,12 @@ public class BocadilloDAO {
             case THURSDAY: return Bocadillo.DiaSemana.Jueves;
             case FRIDAY: return Bocadillo.DiaSemana.Viernes;
             default: return null; // No se asignan bocadillos los fines de semana
+        }
+    }
+
+    public List<Bocadillo> getListaBocadillos(){
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("FROM Bocadillo ORDER BY dia",Bocadillo.class).list();
         }
     }
 }
