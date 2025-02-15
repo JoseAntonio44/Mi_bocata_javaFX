@@ -39,6 +39,7 @@ public class BocadilloDAO {
             case WEDNESDAY: return Bocadillo.DiaSemana.Miercoles;
             case THURSDAY: return Bocadillo.DiaSemana.Jueves;
             case FRIDAY: return Bocadillo.DiaSemana.Viernes;
+            case SATURDAY: return Bocadillo.DiaSemana.Sabado;
             default: return null; // No se asignan bocadillos los fines de semana
         }
     }

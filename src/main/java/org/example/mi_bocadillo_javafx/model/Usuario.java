@@ -21,7 +21,7 @@ public class Usuario {
     @Column(name = "tipo_usuario")
     private TipoUsuario tipoUsuario;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Alumno> alumnos;
 
     public enum TipoUsuario {

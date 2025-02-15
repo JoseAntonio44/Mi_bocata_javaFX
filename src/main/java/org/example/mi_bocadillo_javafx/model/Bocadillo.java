@@ -106,6 +106,6 @@ public class Bocadillo {
     }
 
     public enum DiaSemana {
-        Lunes, Martes, Miercoles, Jueves, Viernes
+        Lunes, Martes, Miercoles, Jueves, Viernes, Sabado
     }
 }

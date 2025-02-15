@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class MainApplication extends Application {
     public static Stage primaryStage;
+    private static Stage loginStage;
 
     public static Stage getPrimaryStage() {
         return primaryStage;
@@ -20,21 +21,21 @@ public class MainApplication extends Application {
         mostrarLogin();
     }
 
-
     public static void mostrarLogin() throws IOException {
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(loader.load(), 650, 650);
-        Stage loginStage = new Stage();
+        loginStage = new Stage();
         loginStage.setScene(scene);
-        loginStage.initStyle(StageStyle.TRANSPARENT); // Establecer el estilo antes de mostrar
+        loginStage.initStyle(StageStyle.TRANSPARENT);
         loginStage.setResizable(false);
         loginStage.show();
     }
 
-
     public static void mostrarPantallaPrincipal() {
         try {
-            primaryStage.close();
+            if (loginStage != null) {
+                loginStage.close();
+            }
             FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("home-screen.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = new Stage();
@@ -44,7 +45,6 @@ public class MainApplication extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public static void main(String[] args) {

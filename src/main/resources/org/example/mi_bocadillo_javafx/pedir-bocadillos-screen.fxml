@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="pantallaPedirBocadillos" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mi_bocadillo_javafx.controller.PedirBocadillosScreenController">
    <children>
-      <Text layoutX="127.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.07579040527344" fx:id="bocataFrio"/>
-      <Text layoutX="395.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.07579040527344" fx:id="bocataCaliente" />
+      <Text fx:id="bocataFrio" layoutX="127.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.07579040527344" />
+      <Text fx:id="bocataCaliente" layoutX="395.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.07579040527344" />
+      <Button fx:id="bocataCalienteButton" onAction="#pedirBocadilloCaliente" layoutX="105.0" layoutY="176.0" mnemonicParsing="false" text="Bocata Caliente" />
+      <Button fx:id="bocataFrioButton" onAction="#pedirBocadilloFrio" layoutX="388.0" layoutY="177.0" mnemonicParsing="false" text="Bocata Frio" />
    </children>
 </AnchorPane>
