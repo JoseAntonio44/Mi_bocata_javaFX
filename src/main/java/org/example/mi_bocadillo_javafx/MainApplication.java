@@ -8,7 +8,11 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class MainApplication extends Application {
-    private static Stage primaryStage;
+    public static Stage primaryStage;
+
+    public static Stage getPrimaryStage() {
+        return primaryStage;
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -17,21 +21,22 @@ public class MainApplication extends Application {
     }
 
 
-    private void mostrarLogin() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+    public static void mostrarLogin() throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(loader.load(), 650, 650);
-        primaryStage.setScene(scene);
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
-        primaryStage.setResizable(false);
-        primaryStage.show();
+        Stage loginStage = new Stage();
+        loginStage.setScene(scene);
+        loginStage.initStyle(StageStyle.TRANSPARENT); // Establecer el estilo antes de mostrar
+        loginStage.setResizable(false);
+        loginStage.show();
     }
 
 
     public static void mostrarPantallaPrincipal() {
         try {
+            primaryStage.close();
             FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("home-screen.fxml"));
             Scene scene = new Scene(loader.load());
-
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Pantalla Principal");

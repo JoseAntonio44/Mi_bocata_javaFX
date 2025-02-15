@@ -12,9 +12,10 @@
    <top>
       <Pane prefHeight="116.0" prefWidth="1187.0" BorderPane.alignment="CENTER">
          <children>
-               <Button layoutX="113.0" layoutY="34.0" mnemonicParsing="false" onAction="#cargarPantallaPedirBocadillos" prefHeight="49.0" prefWidth="235.0" style="-fx-background-radius: 10; -fx-text-fill: black; -fx-background-color: white; -fx-font-size: 20;" text="Pedir bocata" />
-               <Button layoutX="476.0" layoutY="34.0" mnemonicParsing="false" onAction="#cargarPantallaBocadillos" prefHeight="49.0" prefWidth="235.0" style="-fx-background-radius: 10; -fx-text-fill: black; -fx-background-color: white; -fx-font-size: 20;" text="Bocadillos" />
-               <Button layoutX="819.0" layoutY="34.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="235.0" style="-fx-background-radius: 10; -fx-text-fill: black; -fx-background-color: white; -fx-font-size: 20;" text="Mis pedidos" />
+             <Button layoutX="31.0" layoutY="33.0" mnemonicParsing="false" onAction="#cargarPantallaPedirBocadillos" prefHeight="49.0" prefWidth="235.0" style="-fx-background-radius: 10; -fx-text-fill: black; -fx-background-color: white; -fx-font-size: 20;" text="Pedir bocata" />
+             <Button layoutX="345.0" layoutY="34.0" mnemonicParsing="false" onAction="#cargarPantallaBocadillos" prefHeight="49.0" prefWidth="235.0" style="-fx-background-radius: 10; -fx-text-fill: black; -fx-background-color: white; -fx-font-size: 20;" text="Bocadillos" />
+             <Button layoutX="636.0" layoutY="33.0" mnemonicParsing="false" onAction="#cargarPantallaPedidos" prefHeight="49.0" prefWidth="235.0" style="-fx-background-radius: 10; -fx-text-fill: black; -fx-background-color: white; -fx-font-size: 20;" text="Mis pedidos" />
+             <Button layoutX="918.0" layoutY="33.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="49.0" prefWidth="235.0" style="-fx-background-radius: 10; -fx-text-fill: black; -fx-background-color: white; -fx-font-size: 20;" text="Cerrar sesión" />
          </children>
       </Pane>
    </top>

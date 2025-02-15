@@ -105,7 +105,7 @@ public class Alumno {
     }
 
     public enum Abonado {
-        SI, NO
+        si, no
     }
 
 }

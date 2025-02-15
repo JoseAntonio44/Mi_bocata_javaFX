@@ -5,6 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import org.example.mi_bocadillo_javafx.MainApplication;
+import org.example.mi_bocadillo_javafx.auth.AuthManager;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,7 +33,22 @@ public class HomeScreenController implements Initializable {
     private void cargarPantallaBocadillos() throws IOException {
         cargarPantalla("lista-bocadillos-screen.fxml");
     }
+    @FXML
+    private void cargarPantallaPedidos() throws IOException {
+        cargarPantalla("pedidos-screen.fxml");
+    }
 
+    @FXML
+    private void cerrarSesion() throws IOException {
+        AuthManager.getInstance().logout();
+
+        // Cerrar la ventana actual
+        Stage stage = (Stage) contenidoPrincipal.getScene().getWindow();
+        stage.close();
+
+        // Mostrar el login
+        MainApplication.mostrarLogin();
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
