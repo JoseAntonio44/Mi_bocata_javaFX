@@ -39,24 +39,23 @@ public class PedidosController implements Initializable {
     }
 
     public static HBox crearTarjeta(String nombreBocadillo, String estado, String fecha) {
-        // Crear el contenedor de la tarjeta
-        HBox tarjeta = new HBox(10); // Espaciado entre elementos
+        //Contenedor de la tarjeta
+        HBox tarjeta = new HBox(10);
 
-        // Crear los elementos dentro de la tarjeta
+        //Elementos dentro de la tarjeta
         Label labelNombre = new Label("Bocadillo: " + nombreBocadillo);
         labelNombre.setFont(Font.font(16));
 
         Label labelEstado = new Label("Estado: " + estado);
         labelEstado.setFont(Font.font(14));
-        labelEstado.setTextFill(estado.equals("Pendiente") ? Color.RED : Color.GREEN); // Cambiar color según estado
+        labelEstado.setTextFill(estado.equals("Pendiente") ? Color.RED : Color.GREEN);
 
         Label labelFecha = new Label("Fecha: " + fecha);
         labelFecha.setFont(Font.font(14));
 
-        // Agregar todos los elementos al contenedor
+        //Elementos al contenedor
         tarjeta.getChildren().addAll(labelNombre, labelEstado, labelFecha);
 
-        // Personalización visual adicional (puedes añadir imágenes o cambios de estilo)
         tarjeta.setStyle("-fx-background-color: #f4f4f4; -fx-padding: 10; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, gray, 10, 0.5, 0, 0)");
 
         return tarjeta;
