@@ -63,4 +63,19 @@ public class PedidoService {
             return "Hubo un error al realizar el pedido.";
         }
     }
+
+    public void marcarRecogido(Pedido pedido) {
+        //Recibir del controlador un objeto pedido
+        if (pedido.getfRecogido() == null) {
+            boolean actualizado = pedidoDAO.actualizarFechaRecogido(pedido);
+            if (actualizado) {
+                System.out.println("Pedido marcado como recogido.");
+            } else {
+                System.out.println("No se pudo marcar el pedido como recogido.");
+            }
+        } else {
+            System.out.println("Este pedido ya ha sido recogido.");
+        }
+    }
+
 }

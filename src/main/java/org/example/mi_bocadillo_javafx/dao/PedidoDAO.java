@@ -55,5 +55,37 @@ public class PedidoDAO {
         }
     }
 
+    public boolean actualizarFechaRecogido(Pedido pedido) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+
+            Pedido pedidoActualizado = session.createQuery(
+                            "FROM Pedido WHERE alumno = :alumno AND bocadillo = :bocadillo AND fecha = :fecha", Pedido.class)
+                    .setParameter("alumno", pedido.getAlumno())
+                    .setParameter("bocadillo", pedido.getBocadillo())
+                    .setParameter("fecha", pedido.getFecha())
+                    .uniqueResult();
+
+            if (pedidoActualizado != null) {
+                pedidoActualizado.setfRecogido(new Date());
+                session.update(pedidoActualizado);
+                transaction.commit();
+                System.out.println("Fecha de recogido actualizada exitosamente");
+                return true;
+            } else {
+                System.out.println("Pedido no encontrado en la base de datos.");
+                return false;
+            }
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            System.out.println("Error al actualizar la fecha de recogido: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 }

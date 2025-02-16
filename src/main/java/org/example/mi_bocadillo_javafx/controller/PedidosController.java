@@ -30,9 +30,9 @@ public class PedidosController implements Initializable {
     public void mostrarPedidos(){
         pedidoService.obtenerPedidosPorAlumno(usuario.getEmail()).forEach(pedido -> {
             HBox tarjeta = crearTarjeta(
-                    pedido.getBocadillo().getNombre(),
-                    pedido.getfRecogido() == null ? "Pendiente" : "Recogido",
-                    pedido.getFecha().toString());
+                    pedido.getBocadillo().getNombre(), //nombreBocadillo
+                    pedido.getfRecogido() == null ? "Pendiente" : "Recogido", //estado
+                    pedido.getFecha().toString()); //fecha
 
             listaPedidos.getChildren().add(tarjeta);
         });
