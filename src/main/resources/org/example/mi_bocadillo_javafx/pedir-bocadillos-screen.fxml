@@ -8,7 +8,8 @@
    <children>
       <Text fx:id="bocataFrio" layoutX="127.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.07579040527344" />
       <Text fx:id="bocataCaliente" layoutX="395.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.07579040527344" />
-      <Button fx:id="bocataCalienteButton" onAction="#pedirBocadilloCaliente" layoutX="105.0" layoutY="176.0" mnemonicParsing="false" text="Bocata Caliente" />
-      <Button fx:id="bocataFrioButton" onAction="#pedirBocadilloFrio" layoutX="388.0" layoutY="177.0" mnemonicParsing="false" text="Bocata Frio" />
+      <Button fx:id="bocataCalienteButton" layoutX="105.0" layoutY="176.0" mnemonicParsing="false" onAction="#pedirBocadilloCaliente" text="Bocata Caliente" />
+      <Button fx:id="bocataFrioButton" layoutX="388.0" layoutY="177.0" mnemonicParsing="false" onAction="#pedirBocadilloFrio" text="Bocata Frio" />
+      <Text fx:id="labelMensaje" layoutX="268.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.07579040527344" />
    </children>
 </AnchorPane>

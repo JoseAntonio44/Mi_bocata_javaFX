@@ -19,13 +19,12 @@ public class PedidoService {
         return pedidoDAO.getPedidosByEmail(email);
     }
 
-    public boolean guardarPedido(boolean esFrio) {
+    public String guardarPedido(boolean esFrio) {
         Usuario usuario = AuthManager.getInstance().getUsuarioActual();
 
         //Verifica si el usuario tiene algún alumno asignado
         if (usuario.getAlumnos().isEmpty()) {
-            System.out.println("El usuario no está asignado a ningun alumno.");
-            return false;
+            return "El usuario no está asignado a ningun alumno.";
         }
 
         //Bocadillo (frío o caliente)
@@ -38,10 +37,14 @@ public class PedidoService {
 
         //Verifica si el bocadillo es válido
         if (bocadillo == null) {
-            System.out.println("No hay bocadillo disponible para hoy.");
-            return false;
+            return "No hay bocadillo disponible para hoy.";
         }
 
+        //Verifica si ya hay un pedido hoy
+        List<Pedido> pedidosHoy = pedidoDAO.getPedidosHoy(usuario.getEmail());
+        if (!pedidosHoy.isEmpty()) {
+            return "Ya hay un pedido realizado hoy.";
+        }
 
         //Crea un nuevo objeto de pedido
         Pedido pedido = new Pedido();
@@ -50,9 +53,14 @@ public class PedidoService {
         pedido.setBocadillo(bocadillo);
         pedido.setPvp(bocadillo.getPvp());
 
-
-
         PedidoDAO pedidoDAO = new PedidoDAO();
-        return pedidoDAO.pushNuevoPedido(pedido);
+        boolean exito = pedidoDAO.pushNuevoPedido(pedido);
+
+        //Retorna un mensaje de éxito o error
+        if (exito) {
+            return "Pedido realizado con éxito.";
+        } else {
+            return "Hubo un error al realizar el pedido.";
+        }
     }
 }

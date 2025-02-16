@@ -16,6 +16,7 @@ import java.util.List;
 public class PedidoDAO {
 
 
+    //Metodo para obtener todos los pedidos de un alumno
     public List<Pedido> getPedidosByEmail(String email) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Query<Pedido> query = session.createQuery(
@@ -25,7 +26,17 @@ public class PedidoDAO {
             return query.getResultList();
         }
     }
+    //Metodo para obtener los pedidos de hoy
+    public List<Pedido> getPedidosHoy(String email) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Pedido> query = session.createQuery(
+                            "FROM Pedido WHERE DATE(fecha) = DATE(NOW()) AND alumno.usuario.email = :email", Pedido.class)
+                    .setParameter("email", email);
+            return query.getResultList();
+        }
+    }
 
+    //Metodo para guardar un nuevo pedido
     public boolean pushNuevoPedido(Pedido pedido) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

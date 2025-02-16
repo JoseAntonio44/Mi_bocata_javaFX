@@ -3,6 +3,7 @@ package org.example.mi_bocadillo_javafx.dao;
 import org.example.mi_bocadillo_javafx.model.Bocadillo;
 import org.example.mi_bocadillo_javafx.util.HibernateUtil;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -47,6 +48,21 @@ public class BocadilloDAO {
     public List<Bocadillo> getListaBocadillos(){
         try(Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("FROM Bocadillo ORDER BY dia",Bocadillo.class).list();
+        }
+    }
+
+
+    public void actualizarBocadillo(Bocadillo bocadillo) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.update(bocadillo);
+            transaction.commit();
+        }
+    }
+
+    public Bocadillo getBocadilloByNombre(String nombre) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.get(Bocadillo.class, nombre);
         }
     }
 }

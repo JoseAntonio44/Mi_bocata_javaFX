@@ -20,12 +20,9 @@ public class PedirBocadillosScreenController implements Initializable {
     private Text bocataCaliente;
 
     @FXML
-    private Button bocataFrioButton;
+    private Text labelMensaje;
 
-    @FXML
-    private Button bocataCalienteButton;
 
-    //Usuario usuario = AuthManager.getInstance().getUsuarioActual();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -41,25 +38,17 @@ public class PedirBocadillosScreenController implements Initializable {
     @FXML
     private void pedirBocadilloFrio() {
         PedidoService pedidoService = new PedidoService();
-        boolean exito = pedidoService.guardarPedido(true);
-
-        if (exito) {
-            System.out.println("Pedido de bocadillo frío realizado correctamente.");
-        } else {
-            System.out.println("Error al realizar el pedido de bocadillo frío.");
-        }
+        String mensaje = pedidoService.guardarPedido(true);
+        System.out.println(mensaje);
+        labelMensaje.setText(mensaje);
     }
 
     @FXML
     private void pedirBocadilloCaliente() {
         PedidoService pedidoService = new PedidoService();
-        boolean exito = pedidoService.guardarPedido(false);
-
-        if (exito) {
-            System.out.println("Pedido de bocadillo caliente realizado correctamente.");
-        } else {
-            System.out.println("Error al realizar el pedido de bocadillo caliente.");
-        }
+        String mensaje = pedidoService.guardarPedido(false);
+        System.out.println(mensaje);
+        labelMensaje.setText(mensaje);
     }
 
 

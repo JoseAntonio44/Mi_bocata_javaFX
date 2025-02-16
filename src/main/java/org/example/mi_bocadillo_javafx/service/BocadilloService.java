@@ -30,4 +30,12 @@ public class BocadilloService {
         return bocadilloDAO.getListaBocadillos();
     }
 
+
+    public void actualizarBocadillo(Bocadillo bocadillo) {
+        bocadilloDAO.actualizarBocadillo(bocadillo);
+    }
+
+    public Bocadillo obtenerBocadilloPorNombre(String nombre) {
+        return bocadilloDAO.getBocadilloByNombre(nombre);
+    }
 }
