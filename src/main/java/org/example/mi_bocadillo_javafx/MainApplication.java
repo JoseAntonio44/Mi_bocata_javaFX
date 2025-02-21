@@ -5,12 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.example.mi_bocadillo_javafx.auth.AuthManager;
+
 import java.io.IOException;
 
 public class MainApplication extends Application {
     public static Stage primaryStage;
     private static Stage loginStage;
-
+    static AuthManager authManager = AuthManager.getInstance();
     public static Stage getPrimaryStage() {
         return primaryStage;
     }
@@ -36,12 +38,23 @@ public class MainApplication extends Application {
             if (loginStage != null) {
                 loginStage.close();
             }
-            FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("home-screen.fxml"));
-            Scene scene = new Scene(loader.load());
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setTitle("Pantalla Principal");
-            stage.show();
+            var tipoUsuario = authManager.getUsuarioActual().getTipoUsuario();
+            if(tipoUsuario!= null){
+                FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("home-screen-cocina.fxml"));
+                Scene scene = new Scene(loader.load());
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.setTitle("Pantalla Principal");
+                stage.show();
+            } else{
+                FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("home-screen.fxml"));
+                Scene scene = new Scene(loader.load());
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.setTitle("Pantalla Principal");
+                stage.show();
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

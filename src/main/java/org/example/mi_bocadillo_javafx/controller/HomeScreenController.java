@@ -39,6 +39,18 @@ public class HomeScreenController implements Initializable {
     }
 
     @FXML
+    private void cargarPantallaCocinaPedidos() throws IOException {
+        cargarPantalla("cocina-pedidos.fxml");
+    }
+
+    @FXML
+    private void cargarPantallaCocinaBocadillos() throws IOException {
+        cargarPantalla("cocina-bocadillos.fxml");
+    }
+
+
+
+    @FXML
     private void cerrarSesion() throws IOException {
         AuthManager.getInstance().logout();
 
@@ -49,10 +61,16 @@ public class HomeScreenController implements Initializable {
         // Mostrar el login
         MainApplication.mostrarLogin();
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        var tipoUsuario = AuthManager.getInstance().getUsuarioActual().getTipoUsuario();
         try {
-            cargarPantallaPedirBocadillos();
+            if (tipoUsuario != null) {
+                cargarPantallaCocinaBocadillos();
+            }else{
+                cargarPantallaPedirBocadillos();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
