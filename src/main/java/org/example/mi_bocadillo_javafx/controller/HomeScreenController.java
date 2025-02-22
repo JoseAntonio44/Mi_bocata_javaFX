@@ -20,7 +20,8 @@ public class HomeScreenController implements Initializable {
 
     private void cargarPantalla(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/mi_bocadillo_javafx/" + fxml));
-        AnchorPane pantalla = loader.load();
+
+        VBox pantalla = loader.load();
         contenidoPrincipal.getChildren().setAll(pantalla);
     }
 

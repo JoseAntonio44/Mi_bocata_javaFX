@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pantallaPedirBocadillos" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mi_bocadillo_javafx.controller.PedirBocadillosScreenController">
+<VBox fx:id="pantallaPedirBocadillos" alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mi_bocadillo_javafx.controller.PedirBocadillosScreenController">
    <children>
-      <Text fx:id="bocataFrio" layoutX="127.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.07579040527344" />
-      <Text fx:id="bocataCaliente" layoutX="395.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.07579040527344" />
-      <Button fx:id="bocataCalienteButton" layoutX="105.0" layoutY="176.0" mnemonicParsing="false" onAction="#pedirBocadilloCaliente" text="Bocata Caliente" />
-      <Button fx:id="bocataFrioButton" layoutX="388.0" layoutY="177.0" mnemonicParsing="false" onAction="#pedirBocadilloFrio" text="Bocata Frio" />
-      <Text fx:id="labelMensaje" layoutX="268.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.07579040527344" />
+      <HBox alignment="CENTER" prefHeight="108.0" prefWidth="600.0" spacing="100.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+               <children>
+                  <Text fx:id="bocataCaliente" strokeType="OUTSIDE" strokeWidth="0.0" text="Bocadillo Caliente" textAlignment="CENTER" wrappingWidth="102.07579040527344" />
+                  <Button fx:id="bocataCalienteButton" mnemonicParsing="false" onAction="#pedirBocadilloCaliente" text="Bocata Caliente" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+               <children>
+                  <Text fx:id="bocataFrio" strokeType="OUTSIDE" strokeWidth="0.0" text="Bocadillo Frio" textAlignment="CENTER" wrappingWidth="103.07579040527344" />
+                  <Button fx:id="bocataFrioButton" mnemonicParsing="false" onAction="#pedirBocadilloFrio" text="Bocata Frio" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Text fx:id="labelMensaje" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.07579040527344" />
    </children>
-</AnchorPane>
+</VBox>

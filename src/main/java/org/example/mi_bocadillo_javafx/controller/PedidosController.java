@@ -25,7 +25,7 @@ public class PedidosController implements Initializable {
 
 
     @FXML
-    private HBox listaPedidos;
+    private VBox listaPedidos;
 
     public void mostrarPedidos(){
         pedidoService.obtenerPedidosPorAlumno(usuario.getEmail()).forEach(pedido -> {
