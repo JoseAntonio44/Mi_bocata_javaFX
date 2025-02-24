@@ -16,15 +16,15 @@
    <children>
       <ImageView pickOnBounds="true" preserveRatio="true" style="-fx-preserve-ratio: true preserveRatio=true; -fx-pickOnBounds=true;">
          <image>
-            <Image url="@../../../images/paredblanca.png" />
+            <Image url="@../../../images/imagenLogin.png" />
          </image>
       </ImageView>
       <VBox alignment="CENTER" prefHeight="885.0" prefWidth="1035.0" spacing="60.0">
-          <padding>
-              <Insets bottom="20.0" left="200.0" right="200.0" top="20.0" />
-          </padding>
+         <padding>
+            <Insets bottom="20.0" left="200.0" right="200.0" top="20.0" />
+         </padding>
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="90.0" fitWidth="304.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/logoMiBocata.png" />
                </image>
@@ -33,12 +33,17 @@
                <children>
                   <AnchorPane prefHeight="58.0" prefWidth="400.0">
                      <children>
-                        <Button fx:id="closeButton" onAction="#cerrarLogin" layoutX="11.0" layoutY="12.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" text="X" />
+                        <Button fx:id="closeButton" layoutX="11.0" layoutY="12.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#cerrarLogin" style="-fx-background-color:#FF0000 " text="X" textFill="WHITE" />
                      </children>
                   </AnchorPane>
-                  <Label text="Bienvenido!">
+                  <Label text="¡Bienvenido!">
                      <font>
-                        <Font size="20.0" />
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="Comencemos con su correo electronico:">
+                     <font>
+                        <Font size="15.0" />
                      </font>
                   </Label>
                   <VBox alignment="CENTER" maxHeight="450.0" maxWidth="300.0" spacing="20.0">
@@ -46,12 +51,22 @@
                         <VBox alignment="CENTER" prefHeight="7.0" prefWidth="594.0" />
                         <VBox>
                            <children>
-                              <TextField fx:id="emailField" minHeight="50.0" promptText="Usuario" style="-fx-background-radius: 10;">
+                              <Label text="Introduzca su usuario:">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="emailField" minHeight="38.0" prefHeight="38.0" prefWidth="300.0" promptText="Usuario" style="-fx-background-radius: 10;">
                                  <VBox.margin>
                                     <Insets bottom="30.0" />
                                  </VBox.margin>
                               </TextField>
-                              <PasswordField fx:id="passwordField" minHeight="50.0" promptText="Contraseña" style="-fx-background-radius: 10;" />
+                              <Label text="Introduzca su contraseña:">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="passwordField" minHeight="37.0" prefHeight="37.0" prefWidth="300.0" promptText="Contraseña" style="-fx-background-radius: 10;" />
                            </children>
                            <VBox.margin>
                               <Insets />
@@ -59,7 +74,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" maxHeight="70.0">
                            <children>
-                              <Button fx:id="loginButton" minHeight="40.0" minWidth="300.0" mnemonicParsing="false" onAction="#manejarLogin" style="-fx-background-color: #558B2F; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Login">
+                              <Button fx:id="loginButton" minHeight="40.0" minWidth="300.0" mnemonicParsing="false" onAction="#manejarLogin" style="-fx-background-color: #000000; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Login">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

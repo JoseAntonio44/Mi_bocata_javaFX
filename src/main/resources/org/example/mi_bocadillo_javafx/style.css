@@ -1,0 +1,24 @@
+/* Cambia el color del fondo de la barra de desplazamiento */
+.list-view .scroll-bar {
+    -fx-background-color: black;
+}
+
+/* Cambia el color del track (fondo por donde se desliza la barra) */
+.list-view .scroll-bar:vertical .track,
+.list-view .scroll-bar:horizontal .track {
+    -fx-background-color: #222222; /* Gris oscuro */
+}
+
+/* Cambia el color del thumb (la parte que se mueve) */
+.list-view .scroll-bar:vertical .thumb,
+.list-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: white; /* Puedes cambiarlo a otro color */
+    -fx-background-radius: 5px;
+}
+
+/* Cambia el color de los botones arriba y abajo de la scrollbar */
+.list-view .increment-button,
+.list-view .decrement-button {
+    -fx-background-color: #333333;
+    -fx-background-radius: 5px;
+}

@@ -2,10 +2,10 @@
 
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="316.0" prefWidth="580.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mi_bocadillo_javafx.controller.ListaBocadillosController">
+<?import javafx.scene.layout.VBox?>
+<VBox prefHeight="316.0" prefWidth="580.0" style="-fx-border-color: black; -fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.mi_bocadillo_javafx.controller.ListaBocadillosController">
    <children>
-      <ListView fx:id="listaBocadillos" layoutX="44.0" layoutY="31.0" prefHeight="255.0" prefWidth="187.0" />
+      <ListView fx:id="listaBocadillos" layoutX="78.0" layoutY="38.0" prefHeight="241.0" prefWidth="424.0" style="-fx-background-color: black;" />
    </children>
-</AnchorPane>
+</VBox>

@@ -28,6 +28,7 @@ public class ListaBocadillosController implements Initializable {
         listaBocatas();
         configurarListView();
 
+        listaBocadillos.getStylesheets().add(getClass().getResource("/org/example/mi_bocadillo_javafx/style.css").toExternalForm());
     }
 
     private void listaBocatas() {
@@ -46,19 +47,20 @@ public class ListaBocadillosController implements Initializable {
                 } else {
 
                     HBox hBox = new HBox(10);
-                    hBox.setStyle("-fx-padding: 10; -fx-background-color: #f4f4f4; -fx-border-radius: 10; -fx-background-radius: 10;");
+                    hBox.setStyle("-fx-padding: 10; -fx-background-color: #191919; -fx-border-radius: 10; -fx-background-radius: 10;");
 
                     Label diaLabel = new Label(bocadillo.getDia().name());
-                    diaLabel.setStyle("-fx-font-weight: bold; -fx-text-fill: #333;");
+                    diaLabel.setStyle("-fx-font-weight: bold; -fx-text-fill: white;");
 
                     Label nombreLabel = new Label(bocadillo.getNombre());
-                    nombreLabel.setStyle("-fx-text-fill: #666;");
+                    nombreLabel.setStyle("-fx-text-fill: white;");
 
                     Region espacio = new Region();
                     HBox.setHgrow(espacio, Priority.ALWAYS);
 
                     hBox.getChildren().addAll(diaLabel, espacio, nombreLabel);
 
+                    setStyle("-fx-background-color: black;");
                     setGraphic(hBox);
                 }
             }

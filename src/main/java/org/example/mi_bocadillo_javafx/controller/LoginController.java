@@ -24,15 +24,14 @@ public class LoginController {
     private Label mensajeLabel;
 
 
-
     @FXML
     private void manejarLogin() {
         UsuarioService usuarioService = new UsuarioService();
 
         if (usuarioService.validarCredenciales(emailField.getText(), passwordField.getText())) {
             MainApplication.mostrarPantallaPrincipal();
-        }else {
-            mostrarMensaje("Error", "Credenciales inválidas", Alert.AlertType.ERROR);
+        } else {
+            mostrarMensaje("Error", "Credenciales inválidas.", Alert.AlertType.ERROR);
         }
     }
 

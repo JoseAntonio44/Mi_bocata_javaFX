@@ -45,6 +45,7 @@ public class PedidosController implements Initializable {
         //Elementos dentro de la tarjeta
         Label labelNombre = new Label("Bocadillo: " + nombreBocadillo);
         labelNombre.setFont(Font.font(16));
+        labelNombre.setTextFill(Color.WHITE);
 
         Label labelEstado = new Label("Estado: " + estado);
         labelEstado.setFont(Font.font(14));
@@ -52,11 +53,12 @@ public class PedidosController implements Initializable {
 
         Label labelFecha = new Label("Fecha: " + fecha);
         labelFecha.setFont(Font.font(14));
+        labelFecha.setTextFill(Color.WHITE);
 
         //Elementos al contenedor
         tarjeta.getChildren().addAll(labelNombre, labelEstado, labelFecha);
 
-        tarjeta.setStyle("-fx-background-color: #f4f4f4; -fx-padding: 10; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, gray, 10, 0.5, 0, 0)");
+        tarjeta.setStyle("-fx-background-color: #191919; -fx-padding: 10; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, gray, 10, 0.5, 0, 0)");
 
         return tarjeta;
     }
