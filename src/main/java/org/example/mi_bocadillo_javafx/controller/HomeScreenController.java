@@ -59,9 +59,13 @@ public class HomeScreenController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        var tipoUsuario = AuthManager.getInstance().getUsuarioActual().getTipoUsuario();
         try {
-
-            cargarPantallaPedirBocadillos();
+            if (tipoUsuario != null) {
+                cargarPantallaCocinaBocadillos();
+            }else{
+                cargarPantallaPedirBocadillos();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

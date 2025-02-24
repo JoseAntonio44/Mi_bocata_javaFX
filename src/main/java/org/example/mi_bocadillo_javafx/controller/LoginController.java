@@ -29,7 +29,9 @@ public class LoginController {
         UsuarioService usuarioService = new UsuarioService();
 
         if (usuarioService.validarCredenciales(emailField.getText(), passwordField.getText())) {
-            MainApplication.mostrarPantallaPrincipal();
+                MainApplication.mostrarPantallaPrincipal();
+
+
         } else {
             mostrarMensaje("Error", "Credenciales inválidas.", Alert.AlertType.ERROR);
         }

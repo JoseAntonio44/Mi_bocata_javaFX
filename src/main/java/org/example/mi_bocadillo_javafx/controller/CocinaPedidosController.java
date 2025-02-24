@@ -30,7 +30,7 @@ public class CocinaPedidosController implements Initializable {
 
 
     public void mostrarPedidos(){
-        pedidoService.obtenerPedidosPorAlumno(usuario.getEmail()).forEach(pedido -> {
+        pedidoService.obtenerPedidosHoyNoRecogidos().forEach(pedido -> {
             HBox tarjeta = crearTarjeta(
                     pedido.getBocadillo().getNombre(), //nombreBocadillo
                     pedido.getFecha().toString()); //fecha
