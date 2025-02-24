@@ -4,7 +4,7 @@
     <session-factory>
         <!-- Configuración de la base de datos -->
         <property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mariadb://localhost:3307/bocata</property>
+        <property name="hibernate.connection.url">jdbc:mariadb://localhost:3306/bocata</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"></property>
 
@@ -12,7 +12,6 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Mapeo de entidades -->
         <mapping class="org.example.mi_bocadillo_javafx.model.Alergeno"/>
