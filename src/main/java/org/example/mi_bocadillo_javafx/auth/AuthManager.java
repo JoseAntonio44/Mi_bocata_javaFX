@@ -29,6 +29,10 @@ public class AuthManager {
     }
 
     public boolean isLoggedIn() {
-        return usuarioActual != null;
+        if (usuarioActual != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

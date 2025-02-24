@@ -20,7 +20,7 @@ public class HomeScreenController implements Initializable {
 
     private void cargarPantalla(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/mi_bocadillo_javafx/" + fxml));
-        AnchorPane pantalla = loader.load();
+        VBox pantalla = loader.load();
         contenidoPrincipal.getChildren().setAll(pantalla);
     }
 
@@ -37,6 +37,14 @@ public class HomeScreenController implements Initializable {
     private void cargarPantallaPedidos() throws IOException {
         cargarPantalla("pedidos-screen.fxml");
     }
+    @FXML
+    private void cargarPantallaCocinaPedidos() throws IOException {
+        cargarPantalla("cocina-pedidos.fxml");
+    }
+    @FXML
+    private void cargarPantallaCocinaBocadillos() throws IOException {
+        cargarPantalla("cocina-bocadillos.fxml");
+    }
 
     @FXML
     private void cerrarSesion() throws IOException {
@@ -52,6 +60,7 @@ public class HomeScreenController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
+
             cargarPantallaPedirBocadillos();
         } catch (IOException e) {
             e.printStackTrace();
