@@ -25,7 +25,7 @@ public class Pedido {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "f_recogido")
-    private Date fRecogido;
+    private Date f_recogido;
 
     @Column(name = "pvp", precision = 10, scale = 2)
     private BigDecimal pvp;
@@ -58,12 +58,12 @@ public class Pedido {
         this.fecha = fecha;
     }
 
-    public Date getfRecogido() {
-        return fRecogido;
+    public Date getF_recogido() {
+        return f_recogido;
     }
 
-    public void setfRecogido(Date fRecogido) {
-        this.fRecogido = fRecogido;
+    public void setF_recogido(Date f_recogido) {
+        this.f_recogido = f_recogido;
     }
 
     public BigDecimal getPvp() {

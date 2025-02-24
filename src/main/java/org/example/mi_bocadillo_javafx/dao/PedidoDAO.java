@@ -71,7 +71,7 @@ public class PedidoDAO {
                     .uniqueResult();
 
             if (pedidoActualizado != null) {
-                pedidoActualizado.setfRecogido(new Date());
+                pedidoActualizado.setF_recogido(new Date());
                 session.update(pedidoActualizado);
                 transaction.commit();
                 System.out.println("Fecha de recogido actualizada exitosamente");

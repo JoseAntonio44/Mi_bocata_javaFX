@@ -10,7 +10,6 @@ import javafx.scene.text.Font;
 import org.example.mi_bocadillo_javafx.auth.AuthManager;
 import org.example.mi_bocadillo_javafx.model.Usuario;
 import org.example.mi_bocadillo_javafx.service.PedidoService;
-import org.example.mi_bocadillo_javafx.service.UsuarioService;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,7 +30,7 @@ public class PedidosController implements Initializable {
         pedidoService.obtenerPedidosPorAlumno(usuario.getEmail()).forEach(pedido -> {
             HBox tarjeta = crearTarjeta(
                     pedido.getBocadillo().getNombre(), //nombreBocadillo
-                    pedido.getfRecogido() == null ? "Pendiente" : "Recogido", //estado
+                    pedido.getF_recogido() == null ? "Pendiente" : "Recogido", //estado
                     pedido.getFecha().toString()); //fecha
 
             listaPedidos.getChildren().add(tarjeta);

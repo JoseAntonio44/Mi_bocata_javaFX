@@ -69,7 +69,7 @@ public class PedidoService {
 
     public void marcarRecogido(Pedido pedido) {
         //Recibir del controlador un objeto pedido
-        if (pedido.getfRecogido() == null) {
+        if (pedido.getF_recogido() == null) {
             boolean actualizado = pedidoDAO.actualizarFechaRecogido(pedido);
             if (actualizado) {
                 System.out.println("Pedido marcado como recogido.");
