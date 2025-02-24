@@ -18,6 +18,9 @@ public class PedidoService {
     public List<Pedido> obtenerPedidosPorAlumno(String email){
         return pedidoDAO.getPedidosByEmail(email);
     }
+    public List<Pedido> obtenerPedidosHoyNoRecogidos(){
+        return pedidoDAO.getPedidosHoyNoRecogidos();
+    }
 
     public String guardarPedido(boolean esFrio) {
         Usuario usuario = AuthManager.getInstance().getUsuarioActual();
@@ -41,7 +44,7 @@ public class PedidoService {
         }
 
         //Verifica si ya hay un pedido hoy
-        List<Pedido> pedidosHoy = pedidoDAO.getPedidosHoy(usuario.getEmail());
+        List<Pedido> pedidosHoy = pedidoDAO.getPedidosHoyAlumno(usuario.getEmail());
         if (!pedidosHoy.isEmpty()) {
             return "Ya hay un pedido realizado hoy.";
         }

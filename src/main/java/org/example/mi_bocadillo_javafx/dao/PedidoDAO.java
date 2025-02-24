@@ -1,10 +1,6 @@
 package org.example.mi_bocadillo_javafx.dao;
 
-import org.example.mi_bocadillo_javafx.auth.AuthManager;
-import org.example.mi_bocadillo_javafx.model.Bocadillo;
 import org.example.mi_bocadillo_javafx.model.Pedido;
-import org.example.mi_bocadillo_javafx.model.Usuario;
-import org.example.mi_bocadillo_javafx.service.BocadilloService;
 import org.example.mi_bocadillo_javafx.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -26,12 +22,19 @@ public class PedidoDAO {
             return query.getResultList();
         }
     }
-    //Metodo para obtener los pedidos de hoy
-    public List<Pedido> getPedidosHoy(String email) {
+    //Metodo para obtener los pedidos de hoy del alumno
+    public List<Pedido> getPedidosHoyAlumno(String email) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Query<Pedido> query = session.createQuery(
                             "FROM Pedido WHERE DATE(fecha) = DATE(NOW()) AND alumno.usuario.email = :email", Pedido.class)
                     .setParameter("email", email);
+            return query.getResultList();
+        }
+    }
+    public List<Pedido> getPedidosHoyNoRecogidos() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Pedido> query = session.createQuery(
+                            "FROM Pedido WHERE DATE(fecha) = DATE(NOW()) AND f_recogido IS NULL", Pedido.class);
             return query.getResultList();
         }
     }
