@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import org.example.mi_bocadillo_javafx.auth.AuthManager;
 import org.example.mi_bocadillo_javafx.model.Pedido;
@@ -30,18 +31,21 @@ public class CocinaPedidosController implements Initializable {
 
 
     public void mostrarPedidos(){
-        pedidoService.obtenerPedidosHoyNoRecogidos().forEach(pedido -> {
+        pedidoService.obtenerPedidosHoy().forEach(pedido -> {
             HBox tarjeta = crearTarjeta(
                     pedido.getBocadillo().getNombre(), //nombreBocadillo
                     pedido.getFecha().toString(),
                     pedido.getAlumno().getNombre(),
-                    pedido); //fecha
+                    pedido,
+                    pedido.getF_recogido() == null ? "Pendiente" : "Recogido"
+
+                    ); //fecha
 
             listaPedidos.getChildren().add(tarjeta);
         });
     }
 
-    public static HBox crearTarjeta(String nombreBocadillo, String fecha, String nombre, Pedido pedido) {
+    public static HBox crearTarjeta(String nombreBocadillo, String fecha, String nombre, Pedido pedido, String estado) {
         //Contenedor de la tarjeta
         HBox tarjeta = new HBox(10);
 
@@ -55,11 +59,15 @@ public class CocinaPedidosController implements Initializable {
         Label labelAlumno = new Label("Alumno: " + nombre);
         labelAlumno.setFont(Font.font(14));
 
+        Label labelEstado = new Label("Estado: " + estado);
+        labelEstado.setFont(Font.font(14));
+        labelEstado.setTextFill(estado.equals("Pendiente") ? Color.RED : Color.GREEN);
+
         Button buttonRecoger = new Button("Recogido");
         buttonRecoger.setOnAction(event -> recogerPedido(pedido));
 
         //Elementos al contenedor
-        tarjeta.getChildren().addAll(labelNombre, labelFecha,labelAlumno, buttonRecoger);
+        tarjeta.getChildren().addAll(labelNombre, labelFecha,labelAlumno, labelEstado, buttonRecoger);
 
         tarjeta.setStyle("-fx-background-color: #f4f4f4; -fx-padding: 10; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, gray, 10, 0.5, 0, 0)");
 

@@ -31,10 +31,10 @@ public class PedidoDAO {
             return query.getResultList();
         }
     }
-    public List<Pedido> getPedidosHoyNoRecogidos() {
+    public List<Pedido> getPedidosHoy() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Query<Pedido> query = session.createQuery(
-                            "FROM Pedido WHERE DATE(fecha) = DATE(NOW()) AND f_recogido IS NULL", Pedido.class);
+                            "FROM Pedido WHERE DATE(fecha) = DATE(NOW())", Pedido.class);
             return query.getResultList();
         }
     }

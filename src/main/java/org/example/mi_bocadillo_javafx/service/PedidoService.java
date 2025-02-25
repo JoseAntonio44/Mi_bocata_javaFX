@@ -18,8 +18,8 @@ public class PedidoService {
     public List<Pedido> obtenerPedidosPorAlumno(String email){
         return pedidoDAO.getPedidosByEmail(email);
     }
-    public List<Pedido> obtenerPedidosHoyNoRecogidos(){
-        return pedidoDAO.getPedidosHoyNoRecogidos();
+    public List<Pedido> obtenerPedidosHoy(){
+        return pedidoDAO.getPedidosHoy();
     }
 
     public String guardarPedido(boolean esFrio) {
